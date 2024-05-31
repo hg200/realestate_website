@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Market</title>
+    <title>Kenya Real Estate Agency</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
     <header>
         <div class="logo">
-            <h3>Kay's</h3>
+            <h2>Harambee Homes</h2>
         </div>
         <nav>
             <ul>
@@ -25,19 +25,19 @@
     <section id="hero">
         <div class="carousel">
             <div class="carousel-slide">
-                <img src="https://source.unsplash.com/random/1920x1080/?villa" alt="Property 1">
+                <img src="https://source.unsplash.com/random/1920x1080/?nairobi" alt="Property in Nairobi">
                 <div class="carousel-caption">
-                    <h1>Luxury Villa</h1>
-                    <p>Your dream home awaits</p>
-                    <button>View More</button>
+                    <h1>Luxury Villas in Nairobi</h1>
+                    <p>Your dream home in the heart of Kenya</p>
+                    <button onclick="window.location.href='properties.html?type=villa&location=Nairobi'">View More</button>
                 </div>
             </div>
             <div class="carousel-slide">
-                <img src="https://source.unsplash.com/random/1920x1080/?apartment" alt="Property 2">
+                <img src="https://source.unsplash.com/random/1920x1080/?mombasa" alt="Property in Mombasa">
                 <div class="carousel-caption">
-                    <h1>Modern Apartment</h1>
-                    <p>Experience the best city life</p>
-                    <button>View More</button>
+                    <h1>Beachfront Properties in Mombasa</h1>
+                    <p>Experience the best of coastal living</p>
+                    <button onclick="window.location.href='properties.html?type=beachfront&location=Mombasa'">View More</button>
                 </div>
             </div>
             <!-- Add more slides as needed -->
@@ -48,36 +48,41 @@
     <section id="search">
         <h2>Search Properties</h2>
         <form id="search-form">
-            <label for="listing-id">Listing ID</label>
-            <input type="text" id="listing-id" name="listing-id">
-
-            <label for="property-status">Property Status</label>
-            <select id="property-status" name="property-status">
-                <option value="">Any</option>
-                <option value="for-sale">For Sale</option>
-                <option value="for-rent">For Rent</option>
-            </select>
-
-            <label for="property-type">Property Type</label>
-            <select id="property-type" name="property-type">
-                <option value="">Any</option>
-                <option value="apartment">Apartment</option>
-                <option value="house">House</option>
-                <option value="villa">Villa</option>
-            </select>
-
-            <label for="location">Location</label>
-            <input type="text" id="location" name="location">
-
-            <label for="bedrooms">Bedrooms</label>
-            <select id="bedrooms" name="bedrooms">
-                <option value="">Any</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4+</option>
-            </select>
-
+            <div class="form-group">
+                <label for="listing-id">Listing ID</label>
+                <input type="text" id="listing-id" name="listing-id">
+            </div>
+            <div class="form-group">
+                <label for="property-status">Property Status</label>
+                <select id="property-status" name="property-status">
+                    <option value="">Any</option>
+                    <option value="for-sale">For Sale</option>
+                    <option value="for-rent">For Rent</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="property-type">Property Type</label>
+                <select id="property-type" name="property-type">
+                    <option value="">Any</option>
+                    <option value="apartment">Apartment</option>
+                    <option value="house">House</option>
+                    <option value="villa">Villa</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="e.g., Nairobi, Mombasa">
+            </div>
+            <div class="form-group">
+                <label for="bedrooms">Bedrooms</label>
+                <select id="bedrooms" name="bedrooms">
+                    <option value="">Any</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4+</option>
+                </select>
+            </div>
             <button type="button" onclick="filterProperties()">Search</button>
         </form>
     </section>
@@ -85,111 +90,49 @@
         <h2>Latest Properties</h2>
         <div class="property-list">
             <!-- Dummy properties with Unsplash images -->
-            <div class="property" data-id="1" data-status="for-sale" data-type="villa" data-location="New York" data-bedrooms="4">
-                <img src="https://source.unsplash.com/random/300x200/?villa,1" alt="Property 1">
-                <h3>Luxury Villa</h3>
-                <p>$1,200,000</p>
+            <div class="property" data-id="1" onclick="window.location.href='property.html?id=1'">
+                <img src="https://source.unsplash.com/random/300x200/?villa,nairobi" alt="Property 1">
+                <h3>Luxury Villa in Nairobi</h3>
+                <p>120,000,000 KES</p>
             </div>
-            <div class="property" data-id="2" data-status="for-rent" data-type="apartment" data-location="Los Angeles" data-bedrooms="2">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,2" alt="Property 2">
-                <h3>Modern Apartment</h3>
-                <p>$3,000/month</p>
+            <div class="property" data-id="2" onclick="window.location.href='property.html?id=2'">
+                <img src="https://source.unsplash.com/random/300x200/?apartment,mombasa" alt="Property 2">
+                <h3>Modern Apartment in Mombasa</h3>
+                <p>150,000 KES/month</p>
             </div>
-            <div class="property" data-id="3" data-status="for-sale" data-type="house" data-location="Chicago" data-bedrooms="3">
-                <img src="https://source.unsplash.com/random/300x200/?house,3" alt="Property 3">
-                <h3>Cozy House</h3>
-                <p>$750,000</p>
+            <div class="property" data-id="3" onclick="window.location.href='property.html?id=3'">
+                <img src="https://source.unsplash.com/random/300x200/?house,kisumu" alt="Property 3">
+                <h3>Cozy House in Kisumu</h3>
+                <p>25,000,000 KES</p>
             </div>
-            <div class="property" data-id="4" data-status="for-sale" data-type="villa" data-location="Miami" data-bedrooms="5">
-                <img src="https://source.unsplash.com/random/300x200/?villa,4" alt="Property 4">
-                <h3>Beachfront Villa</h3>
-                <p>$2,500,000</p>
-            </div>
-            <div class="property" data-id="5" data-status="for-rent" data-type="apartment" data-location="San Francisco" data-bedrooms="1">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,5" alt="Property 5">
-                <h3>City Apartment</h3>
-                <p>$2,500/month</p>
-            </div>
-            <div class="property" data-id="6" data-status="for-sale" data-type="house" data-location="Dallas" data-bedrooms="4">
-                <img src="https://source.unsplash.com/random/300x200/?house,6" alt="Property 6">
-                <h3>Family House</h3>
-                <p>$600,000</p>
-            </div>
-            <div class="property" data-id="7" data-status="for-sale" data-type="villa" data-location="Seattle" data-bedrooms="4">
-                <img src="https://source.unsplash.com/random/300x200/?villa,7" alt="Property 7">
-                <h3>Mountain Villa</h3>
-                <p>$1,400,000</p>
-            </div>
-            <div class="property" data-id="8" data-status="for-rent" data-type="apartment" data-location="Boston" data-bedrooms="3">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,8" alt="Property 8">
-                <h3>Spacious Apartment</h3>
-                <p>$4,000/month</p>
-            </div>
-            <div class="property" data-id="9" data-status="for-sale" data-type="house" data-location="Houston" data-bedrooms="5">
-                <img src="https://source.unsplash.com/random/300x200/?house,9" alt="Property 9">
-                <h3>Modern House</h3>
-                <p>$950,000</p>
-            </div>
-            <div class="property" data-id="10" data-status="for-sale" data-type="villa" data-location="Las Vegas" data-bedrooms="6">
-                <img src="https://source.unsplash.com/random/300x200/?villa,10" alt="Property 10">
-                <h3>Luxury Estate</h3>
-                <p>$3,000,000</p>
-            </div>
-            <div class="property" data-id="11" data-status="for-rent" data-type="apartment" data-location="New York" data-bedrooms="2">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,11" alt="Property 11">
-                <h3>Luxury Apartment</h3>
-                <p>$5,000/month</p>
-            </div>
-            <div class="property" data-id="12" data-status="for-sale" data-type="house" data-location="Austin" data-bedrooms="4">
-                <img src="https://source.unsplash.com/random/300x200/?house,12" alt="Property 12">
-                <h3>Country House</h3>
-                <p>$850,000</p>
-            </div>
-            <div class="property" data-id="13" data-status="for-rent" data-type="villa" data-location="Orlando" data-bedrooms="5">
-                <img src="https://source.unsplash.com/random/300x200/?villa,13" alt="Property 13">
-                <h3>Resort Villa</h3>
-                <p>$6,000/month</p>
-            </div>
-            <div class="property" data-id="14" data-status="for-sale" data-type="apartment" data-location="Denver" data-bedrooms="3">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,14" alt="Property 14">
-                <h3>Modern Loft</h3>
-                <p>$1,000,000</p>
-            </div>
-            <div class="property" data-id="15" data-status="for-sale" data-type="house" data-location="San Diego" data-bedrooms="4">
-                <img src="https://source.unsplash.com/random/300x200/?house,15" alt="Property 15">
-                <h3>Beach House</h3>
-                <p>$1,600,000</p>
-            </div>
-            <div class="property" data-id="16" data-status="for-rent" data-type="villa" data-location="Los Angeles" data-bedrooms="6">
-                <img src="https://source.unsplash.com/random/300x200/?villa,16" alt="Property 16">
-                <h3>Hollywood Villa</h3>
-                <p>$10,000/month</p>
-            </div>
-            <div class="property" data-id="17" data-status="for-sale" data-type="apartment" data-location="Chicago" data-bedrooms="2">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,17" alt="Property 17">
-                <h3>Downtown Apartment</h3>
-                <p>$750,000</p>
-            </div>
-            <div class="property" data-id="18" data-status="for-rent" data-type="house" data-location="Phoenix" data-bedrooms="3">
-                <img src="https://source.unsplash.com/random/300x200/?house,18" alt="Property 18">
-                <h3>Suburban House</h3>
-                <p>$2,000/month</p>
-            </div>
-            <div class="property" data-id="19" data-status="for-sale" data-type="villa" data-location="Miami" data-bedrooms="5">
-                <img src="https://source.unsplash.com/random/300x200/?villa,19" alt="Property 19">
-                <h3>Waterfront Villa</h3>
-                <p>$2,700,000</p>
-            </div>
-            <div class="property" data-id="20" data-status="for-rent" data-type="apartment" data-location="San Francisco" data-bedrooms="1">
-                <img src="https://source.unsplash.com/random/300x200/?apartment,20" alt="Property 20">
-                <h3>Studio Apartment</h3>
-                <p>$2,200/month</p>
-            </div>
+            <!-- Add more properties as needed -->
         </div>
+        <button class="show-all" onclick="window.location.href='all-properties.html'">Show All Properties</button>
     </section>
     <footer>
-        <p>&copy; 2024 Real Estate Market. All rights reserved.</p>
+        <p>&copy; 2024 Kenya Real Estate Agency. All rights reserved.</p>
     </footer>
+
+    <!-- Popup Form -->
+    <div class="popup-form" id="popup-form">
+        <div class="form-container">
+            <h3>Contact Us</h3>
+            <form id="contact-form">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="phone" required>
+                <label for="message">Message</label>
+                <textarea id="message" name="message" required></textarea>
+                <button type="submit">Submit</button>
+                <button type="button" onclick="closePopup()">Close</button>
+            </form>
+        </div>
+    </div>
+    <button class="open-popup" onclick="openPopup()">Contact Us</button>
+
     <script src="script.js"></script>
 </body>
 

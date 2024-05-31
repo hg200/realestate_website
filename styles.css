@@ -116,28 +116,30 @@ nav ul li a {
 
 #search form {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 1em;
 }
 
-#search form label {
-    margin: 0.5em 0 0.2em;
+.form-group {
+    display: flex;
+    flex-direction: column;
+    margin: 0 1em;
 }
 
 #search form input,
 #search form select {
-    width: 80%;
     padding: 0.5em;
-    margin: 0.5em 0;
+    margin-top: 0.5em;
 }
 
 #search form button {
-    padding: 1em 1em;
+    padding: 0.5em 1em;
     background: #333;
     color: white;
     border: none;
     cursor: pointer;
-    width: 80%;
 }
 
 #latest-properties {
@@ -151,19 +153,109 @@ nav ul li a {
 
 .property-list {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+    overflow-x: auto;
+    padding-bottom: 1em;
 }
 
 .property {
-    margin: 1em;
+    min-width: 300px;
+    margin-right: 1em;
     border: 1px solid #ddd;
     padding: 1em;
-    width: 300px;
     text-align: left;
+    background: #fff;
+    cursor: pointer;
 }
 
 .property img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.show-all {
+    margin-top: 1em;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#property-details {
+    padding: 2em;
+}
+
+#property-gallery img {
+    width: 100%;
+    height: auto;
+}
+
+#property-description {
+    margin-top: 2em;
+}
+
+#property-description h3 {
+    margin-top: 0;
+}
+
+#similar-properties {
+    margin-top: 2em;
+}
+
+#similar-properties .property-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+#property-enquiry {
+    margin-top: 2em;
+}
+
+#property-enquiry form label {
+    margin-top: 10px;
+}
+
+#property-enquiry form input,
+#property-enquiry form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+#property-enquiry form button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+#all-properties {
+    padding: 2em;
+    text-align: center;
+}
+
+#all-properties h2 {
+    margin-bottom: 1em;
+}
+
+.property-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1em;
+}
+
+.property-grid .property {
+    border: 1px solid #ddd;
+    padding: 1em;
+    text-align: left;
+}
+
+.property-grid .property img {
     width: 100%;
     height: 200px;
     object-fit: cover;
@@ -174,4 +266,63 @@ footer {
     color: white;
     text-align: center;
     padding: 1em 0;
+}
+
+
+/* Popup Form */
+
+.popup-form {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 300px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    padding: 20px;
+    z-index: 1000;
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-form h3 {
+    margin-top: 0;
+}
+
+.popup-form form label {
+    margin-top: 10px;
+}
+
+.popup-form form input,
+.popup-form form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+}
+
+.popup-form form button {
+    margin-top: 10px;
+    padding: 10px;
+    background: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.open-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    background: #ff9800;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    z-index: 1001;
 }
